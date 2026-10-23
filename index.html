@@ -184,31 +184,35 @@ a{color:inherit;text-decoration:none}
 .card{overflow:hidden}
 .card>.art{position:absolute;z-index:0;animation:none;pointer-events:none;
   mix-blend-mode:screen;background-repeat:no-repeat;
-  -webkit-mask-image:radial-gradient(64% 64% at 52% 48%,#000 0%,rgba(0,0,0,.92) 36%,transparent 80%);
-  mask-image:radial-gradient(64% 64% at 52% 48%,#000 0%,rgba(0,0,0,.92) 36%,transparent 80%);
-  filter:saturate(1.14) brightness(1.02)}
-.art.r{right:-14%;top:50%;transform:translateY(-50%);width:54%;height:118%;
-  background-size:cover;background-position:center 46%;opacity:.56}
+  -webkit-mask-image:radial-gradient(92% 92% at 52% 48%,#000 0%,rgba(0,0,0,.9) 54%,transparent 96%);
+  mask-image:radial-gradient(92% 92% at 52% 48%,#000 0%,rgba(0,0,0,.9) 54%,transparent 96%);
+  filter:saturate(1.3) brightness(1.06)}
+.art.r{right:0;top:50%;transform:translateY(-50%);width:60%;height:124%;
+  background-size:cover;background-position:center 46%;opacity:.64;
+  -webkit-mask-image:radial-gradient(closest-side,#000 0%,rgba(0,0,0,.85) 54%,transparent 100%);
+  mask-image:radial-gradient(closest-side,#000 0%,rgba(0,0,0,.85) 54%,transparent 100%)}
 .art.r.lf{background-position:left 44%}
-.art.b{left:-8%;right:-8%;bottom:-24%;height:60%;
-  background-size:cover;background-position:center 40%;opacity:.20;
-  -webkit-mask-image:radial-gradient(108% 100% at 50% 106%,#000 6%,rgba(0,0,0,.70) 44%,transparent 86%);
-  mask-image:radial-gradient(108% 100% at 50% 106%,#000 6%,rgba(0,0,0,.70) 44%,transparent 86%)}
-.art.faint{opacity:.18}
-.art.r.axe{right:2%;width:56%;height:104%;background-position:left 58%;opacity:.42;
-  filter:brightness(1.6) saturate(1.05) contrast(1.02);
-  -webkit-mask-image:radial-gradient(70% 62% at 54% 50%,#000 16%,rgba(0,0,0,.7) 48%,transparent 86%);
-  mask-image:radial-gradient(70% 62% at 54% 50%,#000 16%,rgba(0,0,0,.7) 48%,transparent 86%)}
-.art.b.soft{opacity:.30;height:54%;bottom:-16%;background-position:center 58%;
-  -webkit-mask-image:linear-gradient(to top,#000 0%,rgba(0,0,0,.52) 34%,transparent 74%);
-  mask-image:linear-gradient(to top,#000 0%,rgba(0,0,0,.52) 34%,transparent 74%)}
+.art.b{left:-8%;right:-8%;bottom:-22%;height:58%;
+  background-size:cover;background-position:center 40%;opacity:.55;
+  filter:brightness(.76) saturate(1.42) contrast(1.06);
+  -webkit-mask-image:radial-gradient(94% 98% at 50% 102%,#000 0%,rgba(0,0,0,.78) 50%,transparent 92%);
+  mask-image:radial-gradient(94% 98% at 50% 102%,#000 0%,rgba(0,0,0,.78) 50%,transparent 92%)}
+.art.faint{opacity:.36}
+.art.r.axe{right:1%;width:60%;height:112%;background-position:left 58%;opacity:.58;
+  filter:brightness(1.9) saturate(1.22) contrast(1.05);
+  -webkit-mask-image:radial-gradient(closest-side,#000 0%,rgba(0,0,0,.82) 50%,transparent 100%);
+  mask-image:radial-gradient(closest-side,#000 0%,rgba(0,0,0,.82) 50%,transparent 100%)}
+.art.b.soft{opacity:.55;height:56%;bottom:-14%;background-position:center 58%;
+  filter:brightness(.84) saturate(1.26);
+  -webkit-mask-image:linear-gradient(to top,#000 0%,rgba(0,0,0,.72) 52%,transparent 92%);
+  mask-image:linear-gradient(to top,#000 0%,rgba(0,0,0,.72) 52%,transparent 92%)}
 
 /* 窄屏：插图挪到右下、压暗，保证正文可读 */
 @media (max-width:900px){
-  .art.r{right:-18%;top:auto;bottom:-10%;transform:none;width:74%;height:58%;
-    opacity:.24;background-position:right bottom}
-  .art.b{opacity:.24;height:44%}
-  .art.faint{opacity:.2}
+  .art.r{right:-18%;top:auto;bottom:-10%;transform:none;width:78%;height:60%;
+    opacity:.46;background-position:right bottom}
+  .art.b{opacity:.46;height:46%}
+  .art.faint{opacity:.4}
 }
 @keyframes riseIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 
@@ -475,7 +479,7 @@ h2 em::after{content:'';position:absolute;left:0;right:0;bottom:.06em;height:1px
       <!-- XII 入口 -->
       <section class="panel on" data-i="0">
         <div class="card" data-rn="XII">
-          <div class="art b soft" style="background-image:url(assets/art1.webp)" aria-hidden="true"></div>
+          <div class="art b soft" style="background-image:url(assets/art1.webp);background-position:100% 100%" aria-hidden="true"></div>
           <div class="eyebrow" style="--d:0"><span class="gnum">Ω</span>入口 · GATE</div>
           <h2 class="hero">
             <span class="line"><i>能轻易失去的东西</i></span>
@@ -507,7 +511,7 @@ h2 em::after{content:'';position:absolute;left:0;right:0;bottom:.06em;height:1px
       <!-- IV 请了解我 -->
       <section class="panel" data-i="2">
         <div class="card" data-rn="IV">
-          <div class="art b" style="background-image:url(assets/art3.webp)" aria-hidden="true"></div>
+          <div class="art b" style="background-image:url(assets/art3.webp);background-position:62% 0%" aria-hidden="true"></div>
           <div class="eyebrow" style="--d:0"><span class="gnum">Β</span>请了解我 · NEXT</div>
           <h2 style="--d:80"><em>三恋</em>选手</h2>
           <p class="lead" style="--d:140">三种恋法，各自有各自的温度。想要哪一种，提前说。</p>
@@ -546,7 +550,7 @@ h2 em::after{content:'';position:absolute;left:0;right:0;bottom:.06em;height:1px
       <!-- VIII 幸识 -->
       <section class="panel" data-i="4">
         <div class="card" data-rn="VIII">
-          <div class="art r faint" style="background-image:url(assets/art2.webp)" aria-hidden="true"></div>
+          <div class="art r faint" style="background-image:url(assets/art2.webp);background-position:24% 55%" aria-hidden="true"></div>
           <div class="eyebrow" style="--d:0"><span class="gnum">Δ</span>幸识 · MEET</div>
           <div class="meet"><span>幸</span><span>识</span></div>
           <p class="poem" style="--d:400">世界很大，频率对得上的人不多。<br>你刚好转到这里，<b>就算是认识了</b>。</p>
@@ -569,7 +573,7 @@ h2 em::after{content:'';position:absolute;left:0;right:0;bottom:.06em;height:1px
       <!-- X 请靠近我 -->
       <section class="panel" data-i="5">
         <div class="card" data-rn="X">
-          <div class="art r axe" style="background-image:url(assets/art4.webp)" aria-hidden="true"></div>
+          <div class="art r axe" style="background-image:url(assets/art4.webp);background-position:26% 64%" aria-hidden="true"></div>
           <div class="eyebrow" style="--d:0"><span class="gnum">Ε</span>请靠近我 · FINALLY</div>
           <h2 style="--d:80">请 <em>靠近</em> 我</h2>
           <div class="path">
