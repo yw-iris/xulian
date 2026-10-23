@@ -138,10 +138,14 @@ a{color:inherit;text-decoration:none}
 .hneedle{fill:url(#handGrad)}
 .hneedle.back{fill:url(#handGrad2)}
 .hair{stroke:rgba(180,215,245,.40);stroke-width:.7;stroke-linecap:round}
-.ctr{fill:var(--ice)}
-.ctr2{fill:none;stroke:rgba(46,139,255,.5);stroke-width:.8}
-.ctr3{fill:#fff;opacity:.92}
 .ptr{fill:#eaf4ff;opacity:.95;filter:drop-shadow(0 0 7px rgba(58,146,255,.85))}
+/* 星轨环：环绕中心蓝点的蓝色星轨 */
+#starring{transform-box:view-box;transform-origin:50% 50%;animation:ringSpin 72s linear infinite}
+.st-halo{fill:none;stroke:rgba(58,146,255,.16);stroke-width:.6}
+.st-dot{fill:rgba(150,200,255,.45)}
+.st-star{fill:#d4e9ff;filter:drop-shadow(0 0 4px rgba(120,175,230,.9))}
+/* 中心单枚蓝点 */
+.dot-core{fill:var(--ice);filter:drop-shadow(0 0 8px rgba(58,146,255,.95))}
 
 .readout{text-align:center;margin-top:clamp(16px,2.6vh,26px)}
 .now-lab{font-family:var(--display);font-size:9.5px;letter-spacing:.46em;padding-left:.46em;
@@ -567,17 +571,18 @@ h2 em::after{content:'';position:absolute;left:0;right:0;bottom:.02em;height:1px
             <path class="hneedle back" d="M160 152 L160.9 172 L160 178 L159.1 172 Z"/>
           </g>
 
+          <!-- 星轨环：环绕蓝点的蓝色星轨 -->
+          <g id="starring">
+            <circle class="st-halo" cx="160" cy="160" r="90"/>
+          </g>
+
           <g id="dial"></g>
 
           <!-- 12 点固定游标 -->
           <path class="ptr" d="M160 18.5 L164.6 32 L160 28.6 L155.4 32 Z"/>
 
-          <!-- 轴心 -->
-          <circle class="ctr2" cx="160" cy="160" r="13"/>
-          <circle class="ctr2" cx="160" cy="160" r="7.6"/>
-          <circle class="ctr2" cx="160" cy="160" r="4.2"/>
-          <circle class="ctr"  cx="160" cy="160" r="2.1"/>
-          <circle class="ctr3" cx="160" cy="160" r=".9"/>
+          <!-- 轴心：单枚蓝点 -->
+          <circle class="dot-core" cx="160" cy="160" r="3.6"/>
         </svg>
       </div>
     </div>
@@ -598,7 +603,7 @@ h2 em::after{content:'';position:absolute;left:0;right:0;bottom:.02em;height:1px
       <!-- XII 入口 -->
       <section class="panel on" data-i="0">
         <div class="card" data-rn="XII">
-          <div class="art b soft" style="background-image:url(assets/art1.webp);background-position:100% 100%" aria-hidden="true"></div>
+          <div class="art r faint" style="background-image:url(assets/art2.webp);background-position:24% 55%" aria-hidden="true"></div>
           <div class="eyebrow" style="--d:0"><span class="gnum">Ω</span>入口 · GATE</div>
           <h2 class="hero">
             <span class="line"><i>能轻易失去的东西</i></span>
@@ -613,6 +618,7 @@ h2 em::after{content:'';position:absolute;left:0;right:0;bottom:.02em;height:1px
       <!-- II 请认识我 -->
       <section class="panel" data-i="1">
         <div class="card" data-rn="II">
+          <div class="art r axe" style="background-image:url(assets/art4.webp);background-position:26% 64%" aria-hidden="true"></div>
           <div class="eyebrow" style="--d:0"><span class="gnum">Α</span>请认识我 · FIRST</div>
           <h2 style="--d:80">我叫 <em>蝰</em></h2>
           <div class="insc">
@@ -669,6 +675,7 @@ h2 em::after{content:'';position:absolute;left:0;right:0;bottom:.02em;height:1px
       <!-- VI 我的禁忌 -->
       <section class="panel" data-i="3">
         <div class="card" data-rn="VI">
+          <div class="art b soft" style="background-image:url(assets/art1.webp);background-position:100% 100%" aria-hidden="true"></div>
           <div class="eyebrow" style="--d:0"><span class="gnum">Γ</span>我的禁忌 · NOTICE</div>
           <h2 style="--d:80">我的 <em>禁忌</em></h2>
           <p class="lead" style="--d:140">下单须知 —— 先说清楚，再谈喜欢。</p>
@@ -783,6 +790,20 @@ for (let i = 0; i < 60; i++) {
   dc.setAttribute('cx', dx.toFixed(2)); dc.setAttribute('cy', dy.toFixed(2));
   dc.setAttribute('r', '0.95'); dc.setAttribute('class', 'dotc');
   ticks.appendChild(dc);
+}
+
+/* ---- 星轨环：环绕中心的蓝色星轨（细微星尘 + 数颗亮星） ---- */
+const starring = document.getElementById('starring');
+const STN = 36;
+for (let i = 0; i < STN; i++) {
+  const a = i * (360 / STN) * Math.PI / 180;
+  const x = 160 + 90 * Math.sin(a), y = 160 - 90 * Math.cos(a);
+  const c = document.createElementNS(NS, 'circle');
+  c.setAttribute('cx', x.toFixed(2)); c.setAttribute('cy', y.toFixed(2));
+  const big = i % 9 === 0;            /* 每 9 颗点一颗亮星 */
+  c.setAttribute('r', big ? '1.5' : '0.85');
+  c.setAttribute('class', big ? 'st-star' : 'st-dot');
+  starring.appendChild(c);
 }
 
 /* ---- 表盘模块 ---- */
