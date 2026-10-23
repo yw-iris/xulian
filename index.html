@@ -44,7 +44,7 @@ a{color:inherit;text-decoration:none}
 .bg{
   position:absolute;inset:-4%;background-size:cover;background-position:center 42%;
   opacity:0;transition:opacity 1.3s ease;
-  filter:brightness(.68) saturate(1.30) contrast(1.04);
+  filter:brightness(.82) saturate(1.34) contrast(1.02);
   transform:translate3d(calc(var(--mx,0)*6px),calc(var(--my,0)*6px),0) scale(1.05);
   will-change:opacity,transform;
 }
@@ -54,10 +54,10 @@ a{color:inherit;text-decoration:none}
 .veil{
   position:fixed;inset:0;z-index:1;pointer-events:none;
   background:
-    linear-gradient(90deg,rgba(3,5,11,.60) 0%,rgba(3,5,11,.48) 34%,rgba(3,5,11,.30) 62%,rgba(3,5,11,.44) 100%),
+    linear-gradient(90deg,rgba(3,5,11,.46) 0%,rgba(3,5,11,.34) 34%,rgba(3,5,11,.24) 62%,rgba(3,5,11,.34) 100%),
     radial-gradient(120% 90% at 8% 12%,rgba(46,139,255,.16),transparent 58%),
     radial-gradient(110% 80% at 92% 100%,rgba(3,9,22,.80),transparent 62%),
-    linear-gradient(180deg,rgba(2,4,9,.52) 0%,transparent 26%,transparent 68%,rgba(2,4,9,.70) 100%);
+    linear-gradient(180deg,rgba(2,4,9,.42) 0%,transparent 26%,transparent 68%,rgba(2,4,9,.58) 100%);
 }
 .grain{
   position:fixed;inset:0;z-index:2;pointer-events:none;opacity:.055;mix-blend-mode:overlay;
@@ -93,7 +93,7 @@ a{color:inherit;text-decoration:none}
   /* 镂空：中心全透，仅孔壁（外缘）压暗，形成“挖孔”纵深 */
   background:radial-gradient(circle at 50% 50%,
     rgba(2,5,10,0) 55%,rgba(2,5,10,.34) 82%,rgba(2,5,10,.62) 100%);
-  box-shadow:0 0 0 1px rgba(58,146,255,.34),0 0 64px rgba(74,128,186,.22);
+  box-shadow:0 0 0 1.6px rgba(58,146,255,.52),0 0 86px rgba(74,128,186,.30);
 }
 .clock:active{cursor:grabbing}
 .clock::before{
@@ -105,8 +105,8 @@ a{color:inherit;text-decoration:none}
 }
 .clock svg{position:relative;display:block;width:100%;height:100%;color:var(--ink);overflow:visible;
   filter:drop-shadow(0 1px 5px rgba(2,4,9,.82))}
-.ring{fill:none;stroke:rgba(233,241,250,.60);stroke-width:1}
-.ring.o{stroke:rgba(58,146,255,.42);stroke-width:1.4}
+.ring{fill:none;stroke:rgba(233,241,250,.72);stroke-width:1.5}
+.ring.o{stroke:rgba(58,146,255,.6);stroke-width:1.9;filter:drop-shadow(0 0 6px rgba(58,146,255,.6))}
 .ring2{fill:none;stroke:rgba(233,241,250,.30);stroke-width:.8}
 .ring3{fill:none;stroke:rgba(46,139,255,.16);stroke-width:.7;stroke-dasharray:1.4 5;
   transform-box:view-box;transform-origin:50% 50%;animation:spin 120s linear infinite}
@@ -147,16 +147,16 @@ a{color:inherit;text-decoration:none}
 .right{position:relative;display:flex;align-items:center;padding:clamp(48px,8vh,104px) clamp(28px,7vw,110px)}
 /* 文字压暗层：让图在文字后面退后，但仍可见 */
 .right::before{content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
-  background:radial-gradient(82% 78% at 32% 48%,rgba(4,7,11,.44),rgba(4,7,11,.18) 58%,rgba(4,7,11,0) 84%)}
+  background:radial-gradient(82% 78% at 32% 48%,rgba(4,7,11,.34),rgba(4,7,11,.13) 58%,rgba(4,7,11,0) 84%)}
 .stage{position:relative;z-index:1;width:100%;max-width:690px}
 .panel{display:none}
 .panel.on{display:block}
 .card{position:relative;
   padding:clamp(30px,3.6vw,46px) clamp(22px,3.2vw,42px);
   border:1px solid rgba(58,146,255,.20);
-  background:linear-gradient(158deg,rgba(11,20,30,.74),rgba(4,8,13,.52) 62%,rgba(6,12,19,.62));
-  backdrop-filter:blur(15px) saturate(1.12);
-  -webkit-backdrop-filter:blur(15px) saturate(1.12);
+  background:linear-gradient(158deg,rgba(8,15,24,.90),rgba(3,6,11,.80) 62%,rgba(5,10,17,.86));
+  backdrop-filter:blur(19px) saturate(1.16);
+  -webkit-backdrop-filter:blur(19px) saturate(1.16);
   box-shadow:0 34px 90px rgba(0,0,0,.62),inset 0 1px 0 rgba(214,234,252,.07)}
 .card::before{content:'';position:absolute;inset:7px;border:1px solid rgba(58,146,255,.075);pointer-events:none}
 .card::after{content:attr(data-rn);position:absolute;right:16px;bottom:2px;z-index:0;
