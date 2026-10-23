@@ -251,6 +251,33 @@ h2 em::after{content:'';position:absolute;left:0;right:0;bottom:.06em;height:1px
 .doc-link:hover{background:rgba(190,216,240,.92);color:#05080d;border-color:transparent}
 .doc-link .ar{font-size:12px;letter-spacing:0}
 
+/* 她的字 · 文档簇 */
+.writings{margin-top:clamp(18px,3vh,30px);border-top:1px solid var(--line);
+  padding-top:clamp(14px,2.4vh,22px)}
+.writings .wt{font-family:var(--display);font-size:9.5px;letter-spacing:.3em;
+  color:var(--muted);margin-bottom:13px}
+.wlink{display:flex;align-items:center;gap:14px;padding:12px 15px;margin-bottom:9px;
+  border:1px solid rgba(190,216,240,.20);text-decoration:none;
+  background:linear-gradient(120deg,rgba(11,20,30,.5),rgba(6,11,17,.28));
+  color:#e7f1fb;transition:.45s var(--ease)}
+.wlink:last-child{margin-bottom:0}
+.wlink:hover{border-color:rgba(190,216,240,.6);
+  background:linear-gradient(120deg,rgba(20,36,52,.72),rgba(10,18,28,.5));transform:translateX(4px)}
+.wlink .wk{font-family:var(--display);font-size:10px;letter-spacing:.22em;
+  color:#bcd8f2;min-width:40px;opacity:.85}
+.wlink .wt2{flex:1;font-size:13.5px;letter-spacing:.1em;color:#eef6ff;font-weight:300}
+.wlink .ar{font-size:13px;color:rgba(190,216,240,.55);transition:.45s var(--ease)}
+.wlink:hover .ar{color:#fff;transform:translate(2px,-2px)}
+
+/* 矮屏（如 720p 笔记本）：压缩幸识页，避免卡片超出视口被裁切 */
+@media (max-height:780px) and (min-width:901px){
+  .meet{font-size:clamp(56px,8vw,108px);margin-top:clamp(16px,3vh,30px)}
+  .writings{margin-top:clamp(14px,2.2vh,22px)}
+  .writings .wt{margin-bottom:10px}
+  .wlink{padding:10px 13px;margin-bottom:7px}
+  .wlink .wt2{font-size:13px}
+}
+
 /* 图版编号 */
 .plate{position:fixed;left:34px;bottom:32px;z-index:7;font-family:var(--display);font-size:9px;
   letter-spacing:.3em;color:rgba(190,216,240,.42);text-transform:uppercase;pointer-events:none}
@@ -452,6 +479,18 @@ h2 em::after{content:'';position:absolute;left:0;right:0;bottom:.06em;height:1px
           <div class="meet"><span>幸</span><span>识</span></div>
           <p class="poem" style="--d:400">世界很大，频率对得上的人不多。<br>你刚好转到这里，<b>就算是认识了</b>。</p>
           <p class="cite" style="--d:480">—— 蝰</p>
+          <div class="writings" style="--d:560">
+            <div class="wt">她写的字 · 延伸阅读</div>
+            <a class="wlink" href="https://www.kdocs.cn/l/ce7S4n6CHFHz" target="_blank" rel="noopener">
+              <span class="wk">板评</span><span class="wt2">抓不住的东西 连伸手都多余</span><span class="ar">↗</span>
+            </a>
+            <a class="wlink" href="https://www.kdocs.cn/l/ccnaOhB4nLW4" target="_blank" rel="noopener">
+              <span class="wk">随笔</span><span class="wt2">相遇总有原因</span><span class="ar">↗</span>
+            </a>
+            <a class="wlink" href="https://www.kdocs.cn/l/ca9PNJwto3e3" target="_blank" rel="noopener">
+              <span class="wk">冠名</span><span class="wt2">我偏不表明心意</span><span class="ar">↗</span>
+            </a>
+          </div>
         </div>
       </section>
 
