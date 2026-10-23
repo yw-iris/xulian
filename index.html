@@ -290,6 +290,60 @@ h2 em::after{content:'';position:absolute;left:0;right:0;bottom:.02em;height:1px
 .chip:hover{background:rgba(58,146,255,.18);border-color:rgba(58,146,255,.68);color:#fff;
   box-shadow:0 0 18px rgba(58,146,255,.28);transform:translateY(-1px)}
 
+/* 风格谱：四类心法 */
+.cats{margin-top:clamp(18px,2.8vh,30px)}
+.cat{padding:19px 0;border-top:1px solid var(--line-soft)}
+.cat:first-child{border-top:0;padding-top:2px}
+.cat-h{display:flex;align-items:center;gap:13px;flex-wrap:wrap}
+.cat-mark{font-family:var(--cn);font-weight:400;font-size:21px;letter-spacing:.2em;
+  color:#f1f8ff;position:relative;padding-left:17px}
+.cat-mark::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);
+  width:3px;height:19px;border-radius:3px;
+  background:linear-gradient(180deg,var(--ice),rgba(58,146,255,.12));
+  box-shadow:0 0 12px rgba(58,146,255,.6)}
+.cat-en{font-family:var(--display);font-size:9px;letter-spacing:.34em;color:#7fa4c4;
+  text-transform:uppercase;position:relative;top:1px}
+.cat-tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:13px}
+.tag{font-size:12.5px;letter-spacing:.15em;padding:7px 15px;color:#dceaf8;
+  border:1px solid rgba(58,146,255,.26);background:rgba(20,38,58,.4);border-radius:30px;
+  backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);transition:.45s var(--ease)}
+.tag:hover{background:rgba(58,146,255,.16);border-color:rgba(58,146,255,.62);color:#fff;
+  box-shadow:0 0 16px rgba(58,146,255,.26)}
+
+/* 三类笔名 · 轮盘区域 */
+.wheels{margin-top:clamp(20px,3vh,32px);display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.wt-head{grid-column:1 / -1;font-family:var(--display);font-size:9.5px;letter-spacing:.3em;
+  color:#7fa4c4;margin-bottom:4px}
+.wheel{position:relative;display:flex;flex-direction:column;align-items:center;gap:13px;
+  text-decoration:none;padding:6px 4px;transition:.5s var(--ease)}
+.wheel-disc{position:relative;width:110px;height:110px;border-radius:50%;display:grid;place-items:center;
+  background:radial-gradient(circle at 50% 50%,rgba(9,16,28,.58),rgba(4,8,15,.22) 70%,transparent 72%);
+  box-shadow:0 0 0 1px rgba(58,146,255,.5),0 0 30px rgba(74,128,186,.26),
+    inset 0 0 0 1px rgba(150,200,255,.10)}
+.wheel-disc::before{content:'';position:absolute;inset:-7px;border-radius:50%;opacity:.72;
+  background:conic-gradient(from 0deg,
+    rgba(58,146,255,0) 0deg,rgba(128,190,255,.6) 42deg,rgba(58,146,255,.05) 92deg,
+    rgba(58,146,255,0) 200deg,rgba(58,146,255,.45) 252deg,rgba(58,146,255,0) 300deg,rgba(58,146,255,0) 360deg);
+  -webkit-mask:radial-gradient(circle,transparent 93%,#000 93.5%);
+  mask:radial-gradient(circle,transparent 93%,#000 93.5%);
+  animation:ringSpin 18s linear infinite}
+.wheel-disc::after{content:'';position:absolute;inset:6px;border-radius:50%;
+  border:1px dashed rgba(58,146,255,.32)}
+.wheel-core{position:relative;z-index:1;font-family:var(--cn);font-weight:300;font-size:23px;
+  letter-spacing:.16em;padding-left:.16em;color:#f3f8fe;text-shadow:0 0 18px rgba(120,178,232,.42)}
+.wheel-cap{font-family:var(--serif);font-style:italic;font-size:12px;letter-spacing:.04em;
+  color:#bcd8f2;text-align:center;line-height:1.5;max-width:132px}
+.wheel .ar{font-size:13px;color:rgba(58,146,255,.6);transition:.45s var(--ease)}
+.wheel:hover .wheel-disc{box-shadow:0 0 0 1px rgba(120,190,255,.9),0 0 42px rgba(74,128,186,.42),
+  inset 0 0 0 1px rgba(150,200,255,.2);transform:translateY(-3px)}
+.wheel:hover .ar{color:#fff;transform:translate(2px,-2px)}
+@media (max-width:560px){
+  .wheels{grid-template-columns:1fr;gap:14px}
+  .wheel{flex-direction:row;justify-content:flex-start;gap:18px}
+  .wheel-cap{text-align:left;max-width:none}
+  .wheel .ar{margin-left:auto}
+}
+
 /* 禁忌 */
 .notice{margin-top:clamp(22px,3.4vh,36px);padding:24px 26px;border:1px solid var(--line);
   background:linear-gradient(180deg,rgba(12,22,34,.5),rgba(6,11,17,.3));
@@ -374,6 +428,25 @@ h2 em::after{content:'';position:absolute;left:0;right:0;bottom:.02em;height:1px
   .writings .wt{margin-bottom:10px}
   .wlink{padding:10px 13px;margin-bottom:7px}
   .wlink .wt2{font-size:13px}
+}
+
+/* 矮屏：压缩「请了解我」风格谱，避免四类被裁切 */
+@media (max-height:820px) and (min-width:901px){
+  .right{padding-top:26px;padding-bottom:26px}
+  .panel[data-i="2"] .card{padding:24px 30px}
+  .panel[data-i="2"] h2{font-size:clamp(26px,3.3vw,40px);margin-top:11px}
+  .panel[data-i="2"] .lead{margin-top:10px;font-size:14px}
+  .panel[data-i="2"] .cats{margin-top:11px}
+  .panel[data-i="2"] .cat{padding:11px 0}
+  .panel[data-i="2"] .cat:first-child{padding-top:2px}
+  .panel[data-i="2"] .cat-mark{font-size:18px}
+  .panel[data-i="2"] .cat-tags{margin-top:9px}
+  .panel[data-i="2"] .tag{padding:5px 13px;font-size:12px}
+  /* 幸识页三个轮盘同步收紧 */
+  .wheels{margin-top:16px;gap:14px}
+  .wheel-disc{width:92px;height:92px}
+  .wheel-core{font-size:20px}
+  .wheel{gap:10px}
 }
 
 /* 图版编号 */
@@ -558,21 +631,35 @@ h2 em::after{content:'';position:absolute;left:0;right:0;bottom:.02em;height:1px
       <section class="panel" data-i="2">
         <div class="card" data-rn="IV">
           <div class="art b" style="background-image:url(assets/art3.webp);background-position:62% 0%" aria-hidden="true"></div>
-          <div class="eyebrow" style="--d:0"><span class="gnum">Β</span>请了解我 · NEXT</div>
-          <h2 style="--d:80"><em>三恋</em>选手</h2>
-          <p class="lead" style="--d:140">三种恋法，各自有各自的温度。想要哪一种，提前说。</p>
-          <div class="styles">
-            <div class="srow" style="--d:190">
-              <div class="sh"><span class="t">主风格</span><span class="e">MAIN</span></div>
-              <div class="chips">
-                <span class="chip">拉扯</span><span class="chip">温病</span>
-                <span class="chip">低无</span><span class="chip">恶趣味</span>
+          <div class="eyebrow" style="--d:0"><span class="gnum">Β</span>请了解我 · SPECTRUM</div>
+          <h2 style="--d:80">一张 <em>风格谱</em></h2>
+          <p class="lead" style="--d:140">四种相处的方式，各有各的天气。想淋哪一种，先告诉我。</p>
+          <div class="cats">
+            <div class="cat" style="--d:190">
+              <div class="cat-h"><span class="cat-mark">树洞</span><span class="cat-en">HOLLOW</span></div>
+              <div class="cat-tags">
+                <span class="tag">温柔安慰</span><span class="tag">剖析原因</span>
               </div>
             </div>
-            <div class="srow" style="--d:260">
-              <div class="sh"><span class="t">副风格</span><span class="e">SUB</span></div>
-              <div class="chips">
-                <span class="chip">剖析</span><span class="chip">贬低</span>
+            <div class="cat" style="--d:250">
+              <div class="cat-h"><span class="cat-mark">虐</span><span class="cat-en">STING</span></div>
+              <div class="cat-tags">
+                <span class="tag">直戳心窝</span><span class="tag">拉扯</span>
+                <span class="tag">剖析</span><span class="tag">贬低</span>
+              </div>
+            </div>
+            <div class="cat" style="--d:310">
+              <div class="cat-h"><span class="cat-mark">虚</span><span class="cat-en">HAZE</span></div>
+              <div class="cat-tags">
+                <span class="tag">暧昧</span><span class="tag">拉扯</span>
+                <span class="tag">挑逗</span><span class="tag">温柔乡</span><span class="tag">上下位</span>
+              </div>
+            </div>
+            <div class="cat" style="--d:370">
+              <div class="cat-h"><span class="cat-mark">病</span><span class="cat-en">FRAIL</span></div>
+              <div class="cat-tags">
+                <span class="tag">恶趣味</span><span class="tag">温良</span>
+                <span class="tag">低无</span><span class="tag">上下位</span>
               </div>
             </div>
           </div>
@@ -601,16 +688,22 @@ h2 em::after{content:'';position:absolute;left:0;right:0;bottom:.02em;height:1px
           <div class="meet"><span>幸</span><span>识</span></div>
           <p class="poem" style="--d:400">世界很大，频率对得上的人不多。<br>你刚好转到这里，<b>就算是认识了</b>。</p>
           <p class="cite" style="--d:480">—— 蝰</p>
-          <div class="writings" style="--d:560">
-            <div class="wt">她写的字 · 延伸阅读</div>
-            <a class="wlink" href="https://www.kdocs.cn/l/ce7S4n6CHFHz" target="_blank" rel="noopener">
-              <span class="wk">板评</span><span class="wt2">抓不住的东西 连伸手都多余</span><span class="ar">↗</span>
+          <div class="wheels" style="--d:560">
+            <div class="wt-head">她写的字 · 三个轮盘</div>
+            <a class="wheel" href="https://www.kdocs.cn/l/ce7S4n6CHFHz" target="_blank" rel="noopener">
+              <span class="wheel-disc"><span class="wheel-core">板评</span></span>
+              <span class="wheel-cap">抓不住的东西 连伸手都多余</span>
+              <span class="ar">↗</span>
             </a>
-            <a class="wlink" href="https://www.kdocs.cn/l/ccnaOhB4nLW4" target="_blank" rel="noopener">
-              <span class="wk">随笔</span><span class="wt2">相遇总有原因</span><span class="ar">↗</span>
+            <a class="wheel" href="https://www.kdocs.cn/l/ccnaOhB4nLW4" target="_blank" rel="noopener">
+              <span class="wheel-disc"><span class="wheel-core">随笔</span></span>
+              <span class="wheel-cap">相遇总有原因</span>
+              <span class="ar">↗</span>
             </a>
-            <a class="wlink" href="https://www.kdocs.cn/l/ca9PNJwto3e3" target="_blank" rel="noopener">
-              <span class="wk">冠名</span><span class="wt2">我偏不表明心意</span><span class="ar">↗</span>
+            <a class="wheel" href="https://www.kdocs.cn/l/ca9PNJwto3e3" target="_blank" rel="noopener">
+              <span class="wheel-disc"><span class="wheel-core">冠名</span></span>
+              <span class="wheel-cap">我偏不表明心意</span>
+              <span class="ar">↗</span>
             </a>
           </div>
         </div>
